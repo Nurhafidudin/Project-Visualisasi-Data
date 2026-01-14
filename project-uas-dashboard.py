@@ -2,17 +2,15 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-# -----------------------------
+
 # Konfigurasi halaman
-# -----------------------------
 st.set_page_config(
     page_title="Dashboard Indeks Harga Industri Domestik",
     layout="wide"
 )
 
-# -----------------------------
+
 # Load & praproses data
-# -----------------------------
 @st.cache_data
 def load_data():
     df = pd.read_csv("domestic_industrial_price_index_clean.csv")
@@ -46,9 +44,7 @@ def load_data():
 
 df = load_data()
 
-# =============================
 # Sidebar filter
-# =============================
 st.sidebar.header("Pengaturan Filter")
 
 semua_sektor = sorted(df["Sektor_Indo"].unique())
