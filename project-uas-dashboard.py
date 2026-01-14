@@ -76,9 +76,8 @@ data_terfilter = df[
     (df["Tahun"] <= akhir_tahun)
 ].copy()
 
-# =============================
+
 # Header & metrik
-# =============================
 st.title("Dashboard Indeks Harga Industri Domestik")
 
 st.markdown(
@@ -103,9 +102,8 @@ with col3:
         f"{data_terfilter['Tahun'].min()} - {data_terfilter['Tahun'].max()}"
     )
 
-# =============================
+
 # Agregasi tahunan
-# =============================
 # rata-rata tahunan per sektor
 data_tahunan = (
     data_terfilter
@@ -140,7 +138,7 @@ with col_a:
             ),
             y=alt.Y(
                 "Rata-rata indeks tahunan:Q",
-                title="Rata-rata indeks tahunan"   # default zero=True, sumbu mulai 0
+                title="Rata-rata indeks tahunan"  
             ),
             color=alt.Color(
                 "Sektor_Indo:N",
@@ -258,9 +256,8 @@ st.markdown("")
 st.markdown("---")
 st.markdown("")
 
-# =============================
+
 # BARIS 3: Stacked Bar Vertikal & Horizontal
-# =============================
 st.subheader("Komposisi indeks tahunan per sektor dan tahun")
 
 col_e, col_f = st.columns(2)
@@ -325,9 +322,7 @@ with col_f:
     )
     st.altair_chart(chart_stacked_horizontal, use_container_width=True)
 
-# =============================
 # Tabel data tahunan detail
-# =============================
 st.subheader("Tabel data tahunan per sektor")
 
 st.dataframe(
